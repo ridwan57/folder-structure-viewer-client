@@ -1,5 +1,5 @@
 import axios from "axios";
-import { objResType, objType } from "../Types/index";
+import { objResType } from "../Types/index";
 type createType = {
   id: string
 }

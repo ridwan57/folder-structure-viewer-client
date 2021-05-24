@@ -3,14 +3,7 @@
   padding: 5rem 15rem;
   /* cursor: pointer; */
 }
-.base {
-}
-ui {
-  /* list-style-position: outside; */
-}
-ul {
-  /* list-style-position: outside; */
-}
+
 li {
   padding-left: 20px;
 
@@ -40,7 +33,6 @@ li.div.button.span {
   color: green;
   display: inline-block;
   transform: rotate(90deg);
-  /* position: absolute; */
 }
 .folder-target {
   display: none;

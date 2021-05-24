@@ -1,7 +1,7 @@
 import React from "react";
 import useLoad from "./customHooks/useLoad";
 import Modal from "./Modal";
-import { ModalProps, objType, singleObjType } from "./Types";
+import { singleObjType } from "./Types";
 import "./view.css";
 
 const Home = () => {
@@ -15,13 +15,11 @@ const Home = () => {
     isActive,
     isGlobal,
     handleClick,
-    rootIndex,
-    showNode,
+
     isRoot,
   } = useLoad();
 
 
-  // const findObjByID = (id) => obj.find((data) => data.id === id);
   const contentView = (data: singleObjType) => (
     <>
 
@@ -51,7 +49,6 @@ const Home = () => {
             borderRadius: 5,
             padding: 2,
 
-            // content: "\\002B",
           }}
         >
           <span
@@ -62,9 +59,9 @@ const Home = () => {
               fontSize: 20,
             }}
           >
-            {/* &CircleTime; */}
+
             &#8855;
-            {/* {isRoot(data.id) ? "t" : "f"} */}
+
           </span>
         </button>
       )}
@@ -86,7 +83,7 @@ const Home = () => {
             );
           }
 
-          // handleAddFolder(data.id);
+
         }}
         style={{
           margin: 10,
@@ -95,7 +92,7 @@ const Home = () => {
           padding: 5,
           content: "\\002B",
         }}
-      // style={{ margin: 20}
+
       >
         <span
           style={{
@@ -105,27 +102,27 @@ const Home = () => {
             fontSize: 20,
           }}
         >
-          {/* &CircleTime; */}+ New
+          + New
         </span>
       </button>
     </>
   );
-  const [ok, setOk] = React.useState(true);
 
 
   const returnMenuItem = (data: singleObjType) => {
     if (typeof data.children !== 'string' && data.children.length > 0) {
-      const children = data.children.map((data) =>
-      // <ul>{findObjByID(data).name}</ul>
-      {
+      const children = data.children.map((data) => {
         const returnData = findObjByID(data)
         if (typeof returnData !== 'undefined') {
           return returnMenuItem(returnData)
         }
+        else {
+          return null
+        }
       }
       );
 
-      // console.log("children:", children);
+
       return (
         <li key={data.id}>
           {isGlobal(data.id) && (
@@ -149,12 +146,7 @@ const Home = () => {
                 {contentView(data)}
               </div>
               <ul
-                //   className={`folder-target ${ok ? "active" : ""}`}
                 className={`folder-target ${isActive(data.id) ? "active" : ""}`}
-              // onClick={() => {
-              //   console.log("handleClick clicked:");
-              //   handleClick(data.id);
-              // }}
               >
                 {children}
               </ul>
@@ -183,7 +175,7 @@ const Home = () => {
           </li>
 
           {isActive(data.id) && (
-            <ul className={`folder-target ${ok ? "active" : ""}`}>
+            <ul className={`folder-target active `}>
               {"-no folder"}
             </ul>
           )}

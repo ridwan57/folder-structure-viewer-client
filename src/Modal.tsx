@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent } from "react";
+import React from "react";
 import "./modal.css";
 import { ModalProps } from "./Types";
 
