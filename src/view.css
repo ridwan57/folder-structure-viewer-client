@@ -1,0 +1,51 @@
+.folders {
+  font-size: 2rem;
+  padding: 5rem 15rem;
+  /* cursor: pointer; */
+}
+.base {
+}
+ui {
+  /* list-style-position: outside; */
+}
+ul {
+  /* list-style-position: outside; */
+}
+li {
+  padding-left: 20px;
+
+  text-align: left;
+}
+li.div.button.span {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 16px;
+}
+
+.folder::before {
+  color: black;
+  content: '\25B6';
+  display: inline-block;
+
+  margin-right: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+.folder.active::before {
+  color: green;
+  display: inline-block;
+  transform: rotate(90deg);
+  /* position: absolute; */
+}
+.folder-target {
+  display: none;
+}
+.folder-target.active {
+  text-align: left;
+  display: inline-block;
+}
